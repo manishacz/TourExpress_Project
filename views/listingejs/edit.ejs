@@ -1,0 +1,66 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row mt-3">
+    <div class="col-8 offset-2">
+        <br>
+    <h3>Edit Listing</h3>
+    <form method="POST" enctype="multipart/form-data" action="/listings/<%=Listings._id %>?_method=PUT"  novalidate class="needs-validation" >
+        <div class="mb-3">
+        <lable for="title" class="form-label">Title</lable>
+        <input type="list" name="list[title]" value="<%= Listings.title %>" placeholder="Enter Title" class="form-control" required>
+        <div class="valid-feedback">
+            Title looks good!
+          </div>
+        </div>
+        <div class="mb-3">
+         <lable for="description" class="form-label">Description</lable>
+         <textarea type="text" name="list[description]" placeholder="Enter Description" class="form-control" required> <%=Listings.description %></textarea>
+            <div class="invalid-feedback">
+                Please enter a short description.
+            </div>
+        </div>
+        <div class="mb_3">
+          Original Listing Image<br/>
+          <img src="<%=NewImgUrl%>"/>
+        </div>
+        <div class="mb-3">
+          <lable for="image" class="form-label">Upload New Image</lable>
+          <input name="list[image.url]" type="file" class="form-control">
+          <div class="invalid-feedback">
+            Please enter a valid image URL or link.
+          </div>
+        </div>
+        <div class="row">
+         <div class="mb-3  col-md-4"> 
+         <lable for="price" class="form-label">Price</lable>
+         <input name="list[price]" class="form-control" value="<%= Listings.price %>" placeholder="Enter Price" required>
+          <div class="invalid-feedback">
+             Price should be a valid.
+           </div>
+         </div>
+         <div class="mb-3  col-md-8">
+             <lable for="country" class="form-label">Country</lable>
+             <input type="text" name="list[country]"  class="form-control" value="<%= Listings.country %>" placeholder="Enter Country" required>
+              <div class="invalid-feedback">
+                 Country name should be valid.
+              </div>
+         </div> 
+        </div>
+        <div class="mb-3"> 
+        <lable for="location" class="form-label">Location</lable>
+        <input type="text" name="list[location]"  class="form-control" value="<%= Listings.location %>" placeholder="Enter Location" required>
+            <div class="invalid-feedback">
+                 Location should be valid.
+            </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-dark add-btn col-1">Edit</button>
+        <br>
+        <br>
+    </form>
+    <!-- <form method="POST" action="/listings/<=% allListing._id %>?_method=DELETE">
+        <button type="submit" class="btn btn-dark">Delete</button>
+    </form> -->
+    </div>
+    </div>
+</body>
